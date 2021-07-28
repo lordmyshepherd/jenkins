@@ -1,11 +1,20 @@
-#from django.contrib.auth.models import User
-#
+from accounts.models import User
+
 #from rest_framework                  import status
 #from rest_framework.authtoken.models import Token
 #from rest_framework.test             import APITestCase
 #
 #from .models import Payment
-#
+
+class PublicTestCase(APITestCase):
+    def setUp(self):
+        for i in range(5):    
+            User.objects.create_user(unit=f"111{i}", password="0000")
+            print("SUCCESS_TO_CREATE_USER"
+
+    def test_public_user(self):
+        self.assertEqual(1, 1)
+
 #class AdminTestCase(APITestCase):
 #    def setUp(self):
 #        self.user  = User.objects.create_user(id=1, username='admin', password='0000', is_staff = True)
@@ -42,16 +51,6 @@
 #        self.client.force_authenticate(user=None)
 #        response = self.client.get('/api/admin/')
 #        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-#
-#class PublicTestCase(APITestCase):
-#    def setUp(self):
-#        self.user  = User.objects.create_user(id=1, username='0101', password='0000', is_staff = False)
-#        self.token = Token.objects.create(user=self.user)
-#        self.api_authentication()
-#
-#        User.objects.create_user(id=2, username='0102', password='0000', is_staff = False)
-#        Payment.objects.create(id=1, name="0101", pay=1000, user_id=1)
-#        Payment.objects.create(id=2, name="0102", pay=2000, user_id=2)
 #
 #    def api_authentication(self):
 #        self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.token}')
