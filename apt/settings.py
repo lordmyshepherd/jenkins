@@ -93,7 +93,7 @@ DATABASES = {
         'NAME'     : os.environ.get('DB_NAME', 'jenkinsdb'),
         'USER'     : os.environ.get('DB_USERNAME', 'root'),
         'PASSWORD' : os.environ.get('DB_PASSWORD', 'password'),
-        'HOST'     : os.environ.get('DB_HOST', '127.0.0.1'),
+        'HOST'     : os.environ.get('DB_HOST', 'localhost'),
         'PORT'     : os.environ.get('DB_PORT', '3306'),
     }
 }
