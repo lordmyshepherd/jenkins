@@ -10,7 +10,7 @@ class PublicTestCase(APITestCase):
     def setUp(self):
         for i in range(5):    
             User.objects.create_user(unit=f"111{i}", password="0000")
-            print("SUCCESS_TO_CREATE_USER"
+            print("SUCCESS_TO_CREATE_USER")
 
     def test_public_user(self):
         self.assertEqual(1, 1)

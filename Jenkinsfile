@@ -22,7 +22,7 @@ pipeline {
         }
         stage("2. Build & Test") {
             steps {
-                sh "python3.8 manage.py test"
+                sh "python3.8 manage.py test ."
             }
         }
     }
