@@ -14,11 +14,9 @@ pipeline {
 		
 		sh """
 		    pip install -r requirements/requirements.txt
-		    sudo mysql --version
+
 		    sudo service mysql start
-
 		    sudo mysql -uroot -e "UPDATE mysql.user SET authentication_string=PASSWORD('password') WHERE User='root'; FLUSH PRIVILEGES;"
-
 		    sudo mysql -uroot -ppassword -e "CREATE DATABASE jenkinsdb";
                 """
                 }
@@ -27,6 +25,20 @@ pipeline {
             steps {
                 sh "python3.8 manage.py test ."
             }
+        }
+	stage("3. Staging Deploy") {
+	    when {
+	        branch develop
+            }
+            
+            echo "Build staging docker image with Dockerfile"
+            echo "Push docker image to registry"
+
+	    echo "get ec2 ip list with aws cli"
+            echo "access to aws ec2 with aws cli"
+            
+            echo "docker stop"
+            echo "docker run {line 35 pushed docker images} -d
         }
     }
 }

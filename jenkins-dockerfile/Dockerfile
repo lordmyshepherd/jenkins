@@ -31,3 +31,7 @@ RUN sudo apt update -y \
     && python3.8 -mpip install --upgrade pip
 
 CMD ["/bin/bash", "-c"]
+
+## Install Docker
+
+## Install AWS cli
