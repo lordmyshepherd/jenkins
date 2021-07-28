@@ -3,7 +3,7 @@ pipeline {
         docker {
 	    alwaysPull true
             image "lordmyshepherd/jenkins-build"
-            args "-u root:root"
+            args "-e SECRET_KEY=ssssss"
         }
     }
 
