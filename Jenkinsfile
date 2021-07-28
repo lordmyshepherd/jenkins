@@ -16,7 +16,7 @@ pipeline {
 		    pip install -r requirements/requirements.txt
 
 		    sudo service mysql start
-		    sudo mysql -uroot -e "UPDATE mysql.user SET authentication_string=PASSWORD('password') WHERE User='root''; FLUSH PRIVILEGES;
+		    sudo mysql -uroot -e "UPDATE mysql.user SET authentication_string=PASSWORD('password') WHERE User='root''; FLUSH PRIVILEGES;"
 
 		    sudo mysql -uroot -ppassowrd -e "CREATE DATABASE jenkinsdb";
                 """
