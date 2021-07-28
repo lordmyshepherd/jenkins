@@ -13,7 +13,7 @@ pipeline {
                 echo "The build number is ${env.BUILD_NUMBER}"
 		
 		sh """
-		    pip install -r /requirements/requirements.txt
+		    pip install -r requirements/requirements.txt
 
 		    sudo service mysql start
 		    sudo mysql -uroot -ppassowrd -e "CREATE DATABASE jenkinsdb";
