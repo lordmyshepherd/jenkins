@@ -30,8 +30,15 @@ RUN sudo apt update -y \
     && sudo apt install libmysqlclient-dev libmysqld-dev build-essential python3.8-dev -y \
     && python3.8 -mpip install --upgrade pip
 
-CMD ["/bin/bash", "-c"]
-
 ## Install Docker
+RUN sudo apt install -y curl
+RUN curl -fsSL https://get.docker.com -o get-docker.sh
+RUN sudo sh get-docker.sh
 
 ## Install AWS cli
+RUN sudo apt install -y curl unzip
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN sudo ./aws/install
+
+CMD ["/bin/bash", "-c"]
